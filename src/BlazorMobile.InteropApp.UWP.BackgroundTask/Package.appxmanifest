@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:iot="http://schemas.microsoft.com/appx/manifest/iot/windows10" IgnorableNamespaces="uap mp iot">
+  <Identity Name="BlazorMobile.UWP.BackgroundTask-uwp" Publisher="CN=BlazorMobile_UWP_Test" Version="1.0.0.0" />
+  <mp:PhoneIdentity PhoneProductId="f63809ce-8a40-4b8c-8112-51df0eecbdf1" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Properties>
+    <DisplayName>BlazorMobile.UWP.BackgroundTask</DisplayName>
+    <PublisherDisplayName>AdamT</PublisherDisplayName>
+    <Logo>BackgroundAssets\StoreLogo.png</Logo>
+  </Properties>
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
+  </Dependencies>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App">
+      <uap:VisualElements DisplayName="BlazorMobile.UWP.BackgroundTask" Square150x150Logo="BackgroundAssets\Square150x150Logo.png" Square44x44Logo="BackgroundAssets\Square44x44Logo.png" Description="BlazorMobile.UWP.BackgroundTask" BackgroundColor="transparent" AppListEntry="none">
+        <uap:DefaultTile Wide310x150Logo="BackgroundAssets\Wide310x150Logo.png" Square71x71Logo="BackgroundAssets\SmallTile.png" Square310x310Logo="BackgroundAssets\LargeTile.png">
+          <uap:ShowNameOnTiles>
+            <uap:ShowOn Tile="wide310x150Logo"/>
+            <uap:ShowOn Tile="square150x150Logo"/>
+            <uap:ShowOn Tile="square310x310Logo"/>
+          </uap:ShowNameOnTiles>
+        </uap:DefaultTile>
+        <uap:SplashScreen Image="BackgroundAssets\SplashScreen.png" />
+      </uap:VisualElements>
+      <Extensions>
+        <Extension Category="windows.backgroundTasks" EntryPoint="BlazorMobile.UWP.BackgroundTask.StartupTask">
+          <BackgroundTasks>
+            <iot:Task Type="startup" />
+          </BackgroundTasks>
+        </Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+    <Capability Name="internetClientServer" />
+    <Capability Name="privateNetworkClientServer" />
+  </Capabilities>
+</Package>

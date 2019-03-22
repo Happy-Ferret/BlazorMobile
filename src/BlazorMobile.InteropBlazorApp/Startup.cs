@@ -10,7 +10,7 @@ namespace BlazorMobile.InteropBlazorApp
 {
     public class Startup
     {
-        public void ConfigureServices(IServiceCollection services)
+        public virtual void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IXamarinBridge, XamarinBridgeProxy>();
         }

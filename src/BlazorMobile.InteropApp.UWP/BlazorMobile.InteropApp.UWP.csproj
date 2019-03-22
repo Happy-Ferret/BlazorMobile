@@ -147,12 +147,16 @@
       <Version>0.8.0-preview-19104-04</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="3.5.0.169047" />
-    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.1.4" />
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.8" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BlazorMobile.InteropApp.Common\BlazorMobile.InteropApp.Common.csproj">
       <Project>{D2385CE8-C7E3-40D6-B2DB-8C4A4255A5AC}</Project>
       <Name>BlazorMobile.InteropApp.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BlazorMobile.InteropApp.UWP.BackgroundTask\BlazorMobile.UWP.BackgroundTask.csproj">
+      <Project>{20770eec-6c3c-4f2b-bae5-530b39c40226}</Project>
+      <Name>BlazorMobile.UWP.BackgroundTask</Name>
     </ProjectReference>
     <ProjectReference Include="..\BlazorMobile.InteropApp\BlazorMobile.InteropApp.csproj">
       <Project>{28601C22-99D5-4992-ABA3-00345FC730A9}</Project>

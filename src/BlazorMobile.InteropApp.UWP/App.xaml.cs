@@ -102,5 +102,12 @@ namespace BlazorMobile.InteropApp.UWP
             //TODO: Save application state and stop any background activity
             deferral.Complete();
         }
+
+        protected override void OnBackgroundActivated(BackgroundActivatedEventArgs args)
+        {
+            base.OnBackgroundActivated(args);
+            IBackgroundTaskInstance taskInstance = args.TaskInstance;
+            DoYourBackgroundWork(taskInstance);
+        }
     }
 }
