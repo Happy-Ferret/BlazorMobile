@@ -4,7 +4,7 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlazorMobile.Interop
+namespace BlazorMobile.Webserver.Common
 {
     public interface IWebResponse
     {

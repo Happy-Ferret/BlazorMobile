@@ -63,6 +63,10 @@
     <Folder Include="Client\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\BlazorMobile.Webserver.Common\BlazorMobile.Webserver.Common.csproj">
+      <Project>{AC9FAD50-8A41-4B2E-A547-1CE60A9E9253}</Project>
+      <Name>BlazorMobile.Webserver.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\BlazorMobile.Webserver.Mono\BlazorMobile.Webserver.Mono.csproj">
       <Project>{2260bd43-8e01-499b-8472-65d412bcbd3b}</Project>
       <Name>BlazorMobile.Webserver.Mono</Name>

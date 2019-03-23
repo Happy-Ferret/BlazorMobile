@@ -1,15 +1,11 @@
-﻿using BlazorMobile.Common;
-using BlazorMobile.Common.Interop;
-using BlazorMobile.Interop;
+﻿using BlazorMobile.Common.Interop;
 using System;
-using System.Collections.Generic;
 using System.Net;
-using System.Text;
 using Unosquare.Labs.EmbedIO;
 using Unosquare.Labs.EmbedIO.Modules;
 using Unosquare.Swan;
 
-namespace BlazorMobile.Controller
+namespace BlazorMobile.Webserver.Mono.Controller
 {
     public class BlazorContextBridge : WebSocketsServer
     {

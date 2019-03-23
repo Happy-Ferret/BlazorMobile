@@ -1,14 +1,12 @@
-﻿using BlazorMobile.Interop;
-using BlazorMobile.Services;
+﻿using BlazorMobile.Webserver.Common;
+using BlazorMobile.Webserver.Mono.Interop;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using Unosquare.Labs.EmbedIO;
 using Unosquare.Labs.EmbedIO.Constants;
 using Unosquare.Labs.EmbedIO.Modules;
 
-namespace BlazorMobile.Controller
+namespace BlazorMobile.Webserver.Mono.Controller
 {
     public class BlazorController : WebApiController
     {
@@ -22,12 +20,12 @@ namespace BlazorMobile.Controller
             try
             {
                 IWebResponse response = new EmbedIOWebResponse(this.Request, this.Response);
-                await WebApplicationFactory.ManageRequest(response);
+                await WebApplicationFactoryInternal.GetWebApplicationFactoryImplementation().ManageRequest(response);
                 return true;
             }
             catch (Exception ex)
             {
-                return this.JsonExceptionResponse(ex);
+                return await this.JsonExceptionResponseAsync(ex);
             }
         }
 

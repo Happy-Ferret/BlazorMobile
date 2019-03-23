@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using BlazorMobile.Webserver.Common;
 using System.IO;
-using System.Text;
 using System.Threading.Tasks;
 using Unosquare.Labs.EmbedIO;
 
-namespace BlazorMobile.Interop
+namespace BlazorMobile.Webserver.Mono.Interop
 {
     public class EmbedIOWebResponse : IWebResponse
     {
@@ -33,7 +31,7 @@ namespace BlazorMobile.Interop
             //Sanity check
             data.Seek(0, SeekOrigin.Begin);
 
-            return _response.BinaryResponseAsync(data, default, false);
+            return _response.BinaryResponseAsync(data, false, default);
         }
 
         public void SetEncoding(string encoding)

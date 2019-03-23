@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BlazorMobile.Consts
+namespace BlazorMobile.Webserver.Common.Consts
 {
     public static class Constants
     {

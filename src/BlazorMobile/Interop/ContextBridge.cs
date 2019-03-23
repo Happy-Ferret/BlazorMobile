@@ -3,10 +3,8 @@ using BlazorMobile.Common.Serialization;
 using BlazorMobile.Components;
 using BlazorMobile.Services;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -114,37 +112,6 @@ namespace BlazorMobile.Interop
             }
 
             return methodProxy;
-        }
-
-        /// <summary>
-        /// Manage In and Out call of Method
-        /// </summary>
-        /// <param name="webview"></param>
-        /// <param name="json"></param>
-        public static void BridgeEvaluator(BlazorWebView webview, MethodProxy taskInput, Action<string> outEvaluator = null)
-        {
-            //We must evaluate data on main thread, as some platform doesn't
-            //support to be executed from a non-UI thread for UI 
-            //or Webview bridge
-            Device.BeginInvokeOnMainThread(delegate ()
-            {
-                MethodProxy returnValue = Receive(taskInput);
-                string jsonReturnValue = GetJSONReturnValue(returnValue);
-
-                //TODO: Manage missed returns value if the websocket disconnect, or discard them ?
-                WebApplicationFactory.GetBlazorContextBridgeServer().SendMessageToClient(jsonReturnValue);
-
-                //var receiveEvaluator = webview.GetReceiveEvaluator(jsonReturnValue);
-
-                //if (outEvaluator != null)
-                //{
-                //    outEvaluator(receiveEvaluator);
-                //}
-                //else
-                //{
-                //    webview.Eval(receiveEvaluator);
-                //}
-            });
         }
     }
 }

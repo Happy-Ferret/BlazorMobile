@@ -1,5 +1,7 @@
 ﻿using BlazorMobile.Droid.Renderer;
 using BlazorMobile.Services;
+using BlazorMobile.Webserver.Common;
+using BlazorMobile.Webserver.Mono.Services;
 using System;
 using System.IO;
 
@@ -8,8 +10,17 @@ namespace BlazorMobile.Droid.Services
     [Android.Runtime.Preserve(AllMembers = true)]
     public static class BlazorWebViewService
     {
+        private static IWebApplicationFactory _factory = null;
+
         private static void InitComponent(Android.App.Activity activity)
         {
+            if (_factory == null)
+            {
+                //We must resolve current WebApplicationFactory implementation
+                _factory = new EmbedIOWebApplicationFactory();
+                WebApplicationFactoryInternal.SetWebApplicationFactoryImplementation(_factory);
+            }
+
             BlazorGeckoViewRenderer.Init(activity);
         }
 
