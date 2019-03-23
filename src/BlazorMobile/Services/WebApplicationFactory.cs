@@ -1,7 +1,9 @@
-﻿using BlazorMobile.Webserver.Common;
+﻿using BlazorMobile.Common.Interfaces;
+using BlazorMobile.Webserver.Common;
 using System;
 using System.IO;
 using System.Runtime.CompilerServices;
+using Xamarin.Forms;
 
 [assembly: InternalsVisibleTo("BlazorMobile.Android")]
 [assembly: InternalsVisibleTo("BlazorMobile.iOS")]
@@ -59,6 +61,8 @@ namespace BlazorMobile.Services
         {
             WebApplicationFactoryInternal.GetWebApplicationFactoryImplementation().Init(appStreamResolver);
         }
+
+        private static bool isFirstCall = false;
 
         internal static void Init()
         {

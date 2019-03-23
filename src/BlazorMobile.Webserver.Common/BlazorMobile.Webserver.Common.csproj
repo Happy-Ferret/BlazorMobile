@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\BlazorMobile.Common\BlazorMobile.Common.csproj" />
+    <ProjectReference Include="..\BlazorMobile.Common\BlazorMobile.Common.csproj" />
   </ItemGroup>
 
 </Project>

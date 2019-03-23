@@ -38,9 +38,6 @@ namespace BlazorMobile.Webserver.Common
         {
             if (_firstCall)
             {
-                //Register IBlazorXamarinDeviceService for getting base metadata for Blazor
-                DependencyService.Register<IBlazorXamarinDeviceService, BlazorXamarinDeviceService>();
-
                 //Do something in the future if required
                 _firstCall = false;
             }

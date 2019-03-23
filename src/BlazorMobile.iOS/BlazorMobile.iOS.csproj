@@ -63,17 +63,17 @@
     <Compile Include="Services\BlazorWebViewService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\BlazorMobile.Webserver.Common\BlazorMobile.Webserver.Common.csproj">
-      <Project>{AC9FAD50-8A41-4B2E-A547-1CE60A9E9253}</Project>
-      <Name>BlazorMobile.Webserver.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\BlazorMobile.Webserver.Mono\BlazorMobile.Webserver.Mono.csproj">
-      <Project>{2260bd43-8e01-499b-8472-65d412bcbd3b}</Project>
-      <Name>BlazorMobile.Webserver.Mono</Name>
-    </ProjectReference>
     <ProjectReference Include="..\BlazorMobile.Common\BlazorMobile.Common.csproj">
       <Project>{c212a056-8def-45d2-bb87-92e63886efa2}</Project>
       <Name>BlazorMobile.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BlazorMobile.Webserver.Common\BlazorMobile.Webserver.Common.csproj">
+      <Project>{ac9fad50-8a41-4b2e-a547-1ce60a9e9253}</Project>
+      <Name>BlazorMobile.Webserver.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BlazorMobile.Webserver.Mono\BlazorMobile.Webserver.Mono.csproj">
+      <Project>{2260bd43-8e01-499b-8472-65d412bcbd3b}</Project>
+      <Name>BlazorMobile.Webserver.Mono</Name>
     </ProjectReference>
     <ProjectReference Include="..\BlazorMobile\BlazorMobile.csproj">
       <Project>{c4e7f7b7-6078-4407-9e78-7cdd174a9f1d}</Project>

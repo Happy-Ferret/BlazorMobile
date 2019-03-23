@@ -103,6 +103,14 @@
       <Project>{e97e970b-9b46-44ff-a19e-e7b7fa6aa671}</Project>
       <Name>BlazorMobile.Android</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BlazorMobile.Webserver.Common\BlazorMobile.Webserver.Common.csproj">
+      <Project>{ac9fad50-8a41-4b2e-a547-1ce60a9e9253}</Project>
+      <Name>BlazorMobile.Webserver.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BlazorMobile.Webserver.Mono\BlazorMobile.Webserver.Mono.csproj">
+      <Project>{2260bd43-8e01-499b-8472-65d412bcbd3b}</Project>
+      <Name>BlazorMobile.Webserver.Mono</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BlazorMobile\BlazorMobile.csproj">
       <Project>{c4e7f7b7-6078-4407-9e78-7cdd174a9f1d}</Project>
       <Name>BlazorMobile</Name>

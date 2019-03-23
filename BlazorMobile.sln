@@ -83,11 +83,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorMobile.Sample.Android
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorMobile.Sample.iOS", "src\BlazorMobile.Samples\BlazorMobile.Sample.iOS\BlazorMobile.Sample.iOS.csproj", "{F62FB8D8-B450-4C86-BF17-B8FE5784125C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorMobile.Webserver.Mono", "BlazorMobile.Webserver.Mono\BlazorMobile.Webserver.Mono.csproj", "{2260BD43-8E01-499B-8472-65D412BCBD3B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorMobile.Webserver.Mono", "src\BlazorMobile.Webserver.Mono\BlazorMobile.Webserver.Mono.csproj", "{2260BD43-8E01-499B-8472-65D412BCBD3B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorMobile.Webserver.UWP", "BlazorMobile.Webserver.UWP\BlazorMobile.Webserver.UWP.csproj", "{343CCD8D-D478-4280-88E2-1F42BD4332E2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorMobile.Webserver.UWP", "src\BlazorMobile.Webserver.UWP\BlazorMobile.Webserver.UWP.csproj", "{343CCD8D-D478-4280-88E2-1F42BD4332E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorMobile.Webserver.Common", "BlazorMobile.Webserver.Common\BlazorMobile.Webserver.Common.csproj", "{AC9FAD50-8A41-4B2E-A547-1CE60A9E9253}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorMobile.Webserver.Common", "src\BlazorMobile.Webserver.Common\BlazorMobile.Webserver.Common.csproj", "{AC9FAD50-8A41-4B2E-A547-1CE60A9E9253}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

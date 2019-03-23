@@ -1,9 +1,11 @@
-﻿using BlazorMobile.Droid.Renderer;
+﻿using BlazorMobile.Common.Interfaces;
+using BlazorMobile.Droid.Renderer;
 using BlazorMobile.Services;
 using BlazorMobile.Webserver.Common;
 using BlazorMobile.Webserver.Mono.Services;
 using System;
 using System.IO;
+using Xamarin.Forms;
 
 namespace BlazorMobile.Droid.Services
 {
@@ -16,6 +18,9 @@ namespace BlazorMobile.Droid.Services
         {
             if (_factory == null)
             {
+                //Register IBlazorXamarinDeviceService for getting base metadata for Blazor
+                DependencyService.Register<IBlazorXamarinDeviceService, BlazorXamarinDeviceService>();
+
                 //We must resolve current WebApplicationFactory implementation
                 _factory = new EmbedIOWebApplicationFactory();
                 WebApplicationFactoryInternal.SetWebApplicationFactoryImplementation(_factory);
