@@ -6,6 +6,12 @@ using System.Text;
 using System.Linq;
 
 [assembly: InternalsVisibleTo("BlazorMobile")]
+[assembly: InternalsVisibleTo("BlazorMobile.Android")]
+[assembly: InternalsVisibleTo("BlazorMobile.iOS")]
+[assembly: InternalsVisibleTo("BlazorMobile.UWP")]
+[assembly: InternalsVisibleTo("BlazorMobile.Webserver.Common")]
+[assembly: InternalsVisibleTo("BlazorMobile.Webserver.Mono")]
+[assembly: InternalsVisibleTo("BlazorMobile.Webserver.UWP")]
 namespace BlazorMobile.Common.Interop
 {
     internal static class MethodProxyHelper

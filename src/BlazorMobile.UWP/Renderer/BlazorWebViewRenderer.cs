@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using BlazorMobile.Common.Interop;
-using BlazorMobile.Components;
-using BlazorMobile.Interop;
-using BlazorMobile.Services;
+﻿using BlazorMobile.Components;
 using BlazorMobile.UWP.Renderer;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.UWP;

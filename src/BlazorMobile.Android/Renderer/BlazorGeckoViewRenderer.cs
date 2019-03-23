@@ -2,6 +2,7 @@
 using BlazorMobile.Components;
 using BlazorMobile.Droid.Renderer;
 using BlazorMobile.Services;
+using BlazorMobile.Webserver.Common;
 using Org.Mozilla.Geckoview;
 using System;
 using Xam.Droid.GeckoView.Forms.Droid.Renderers;
@@ -16,7 +17,7 @@ namespace BlazorMobile.Droid.Renderer
         {
             var resultTuple = base.CreateNewSession();
 
-            if (WebApplicationFactory._debugFeatures)
+            if (WebApplicationFactoryInternal.GetWebApplicationFactoryImplementation().AreDebugFeaturesEnabled())
             {
                 resultTuple.Item2.Settings.SetRemoteDebuggingEnabled(true);
                 resultTuple.Item2.Settings.SetConsoleOutputEnabled(true);

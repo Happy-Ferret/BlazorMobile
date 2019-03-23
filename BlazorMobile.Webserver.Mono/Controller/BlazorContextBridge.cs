@@ -1,4 +1,5 @@
 ﻿using BlazorMobile.Common.Interop;
+using BlazorMobile.Webserver.Common.Interop;
 using System;
 using System.Net;
 using Unosquare.Labs.EmbedIO;

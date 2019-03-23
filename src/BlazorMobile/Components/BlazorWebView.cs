@@ -1,8 +1,4 @@
-﻿using BlazorMobile.Interop;
-using BlazorMobile.Services;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using BlazorMobile.Services;
 using System.Web;
 using Xamarin.Forms;
 

@@ -1,8 +1,5 @@
-﻿using BlazorMobile.Common.Interop;
-using BlazorMobile.Components;
-using BlazorMobile.Interop;
+﻿using BlazorMobile.Components;
 using BlazorMobile.iOS.Renderer;
-using BlazorMobile.Services;
 using Foundation;
 using System;
 using System.ComponentModel;

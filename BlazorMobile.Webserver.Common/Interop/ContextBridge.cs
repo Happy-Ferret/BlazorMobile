@@ -1,14 +1,12 @@
 ﻿using BlazorMobile.Common.Interop;
 using BlazorMobile.Common.Serialization;
-using BlazorMobile.Components;
-using BlazorMobile.Services;
 using System;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace BlazorMobile.Interop
+namespace BlazorMobile.Webserver.Common.Interop
 {
     public static class ContextBridge
     {

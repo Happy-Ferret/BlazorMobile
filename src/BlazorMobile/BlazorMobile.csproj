@@ -30,4 +30,8 @@
     <ProjectReference Include="..\..\BlazorMobile.Webserver.Common\BlazorMobile.Webserver.Common.csproj" />
     <ProjectReference Include="..\BlazorMobile.Common\BlazorMobile.Common.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Interop\" />
+  </ItemGroup>
 </Project>
