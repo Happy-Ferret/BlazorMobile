@@ -46,8 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interop\AndroidWebResponse.cs" />
-    <Compile Include="Interop\JSBridge.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Renderer\BlazorGeckoViewRenderer.cs" />
     <Compile Include="Renderer\BlazorWebViewRenderer.cs" />
@@ -65,6 +63,10 @@
     <Folder Include="Client\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\BlazorMobile.Webserver.Mono\BlazorMobile.Webserver.Mono.csproj">
+      <Project>{2260bd43-8e01-499b-8472-65d412bcbd3b}</Project>
+      <Name>BlazorMobile.Webserver.Mono</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BlazorMobile.Common\BlazorMobile.Common.csproj">
       <Project>{c212a056-8def-45d2-bb87-92e63886efa2}</Project>
       <Name>BlazorMobile.Common</Name>
