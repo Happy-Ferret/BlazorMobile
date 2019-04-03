@@ -20,14 +20,8 @@ namespace BlazorMobile.UWP.Renderer
             base.OnElementChanged(e);
             if (_init == false && Control != null)
             {
-                //Control.ScriptNotify += Control_ScriptNotify;
                 _init = true;
             }
         }
-
-        //private void Control_ScriptNotify(object sender, Windows.UI.Xaml.Controls.NotifyEventArgs e)
-        //{
-        //    ContextBridge.BridgeEvaluator((BlazorWebView)Element, e.Value);
-        //}
     }
 }

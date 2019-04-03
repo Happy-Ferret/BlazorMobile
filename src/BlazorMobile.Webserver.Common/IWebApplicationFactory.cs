@@ -33,5 +33,6 @@ namespace BlazorMobile.Webserver.Common
         bool AreDebugFeaturesEnabled();
         void StartWebServer();
         void StopWebServer();
+        event EventHandler ServerStarted;
     }
 }

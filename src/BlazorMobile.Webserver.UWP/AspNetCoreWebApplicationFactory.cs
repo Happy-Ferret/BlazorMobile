@@ -1,29 +1,29 @@
 ﻿using BlazorMobile.Webserver.Common;
-using BlazorMobile.Webserver.Mono.Controller;
+using BlazorMobile.Webserver.UWP;
+using Microsoft.AspNetCore;
+using Microsoft.AspNetCore.Hosting;
 using System;
 using System.IO;
 using System.IO.Compression;
-using System.Net;
-using System.Net.Sockets;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
-using Unosquare.Labs.EmbedIO;
-using Unosquare.Labs.EmbedIO.Constants;
-using Unosquare.Labs.EmbedIO.Modules;
 
 [assembly: InternalsVisibleTo("BlazorMobile.Android")]
 [assembly: InternalsVisibleTo("BlazorMobile.iOS")]
-namespace BlazorMobile.Webserver.Mono.Services
+namespace BlazorMobile.Webserver.UWP.Services
 {
-    public class EmbedIOWebApplicationFactory : IWebApplicationFactory
+    public class AspNetCoreWebApplicationFactory : IWebApplicationFactory
     {
-        private Unosquare.Labs.EmbedIO.WebServer server;
+        private IWebHost server;
         private CancellationTokenSource serverCts = new CancellationTokenSource();
 
-        private BlazorContextBridge blazorContextBridgeServer = null;
-
         private bool _isStarted = false;
+
+        internal void SetIsStarted(bool value)
+        {
+            _isStarted = value;
+        }
 
         public bool IsStarted()
         {
@@ -32,7 +32,22 @@ namespace BlazorMobile.Webserver.Mono.Services
 
         private Func<string, string> _defaultPageDelegate;
 
-        #region OnServerStarted event
+        internal Func<string, string> GetDefaultPageResultDelegate()
+        {
+            return _defaultPageDelegate;
+        }
+
+        public void SetDefaultPageResult(Func<string, string> defaultPageDelegate)
+        {
+            _defaultPageDelegate = defaultPageDelegate;
+        }
+
+        public int GetHttpPort()
+        {
+            return WebApplicationFactoryInternal.GetHttpPort();
+        }
+
+        #region OnServerStarted event for delayed start on UWP / Kestrel
 
         internal EventHandler m_ServerStarted;
 
@@ -55,26 +70,6 @@ namespace BlazorMobile.Webserver.Mono.Services
 
         #endregion
 
-        internal Func<string, string> GetDefaultPageResultDelegate()
-        {
-            return _defaultPageDelegate;
-        }
-
-        public void SetDefaultPageResult(Func<string, string> defaultPageDelegate)
-        {
-            _defaultPageDelegate = defaultPageDelegate;
-        }
-
-        public int GetHttpPort()
-        {
-            return WebApplicationFactoryInternal.GetHttpPort();
-        }
-
-        internal BlazorContextBridge GetBlazorContextBridgeServer()
-        {
-            return blazorContextBridgeServer;
-        }
-
         public void StartWebServer()
         {
             if (IsStarted())
@@ -83,29 +78,21 @@ namespace BlazorMobile.Webserver.Mono.Services
                 return;
             }
 
-            server = new Unosquare.Labs.EmbedIO.WebServer(WebApplicationFactoryInternal.GetBaseURL(), RoutingStrategy.Regex);
-            server.WithLocalSession();
-
-            if (WebApplicationFactoryInternal.AreDebugFeaturesEnabled())
-            {
-                server.EnableCors();
-            }
-
-            server.RegisterModule(new WebApiModule());
-            server.Module<WebApiModule>().RegisterController<BlazorController>();
-
-            //Reference to the BlazorContextBridge Websocket service
-            blazorContextBridgeServer = new BlazorContextBridge();
-
-            server.RegisterModule(new WebSocketsModule());
-            server.Module<WebSocketsModule>().RegisterWebSocketsServer(GetContextBridgeRelativeURI(), blazorContextBridgeServer);
-
             serverCts = new CancellationTokenSource();
 
             Task.Factory.StartNew(async () =>
             {
                 _isStarted = true;
+
                 Console.WriteLine("BlazorMobile: Starting Server...");
+
+                server = WebHost
+                    .CreateDefaultBuilder()
+                    .UseSetting("preventHostingStartup", "true")
+                    .UseStartup<Startup>()
+                    .UseUrls(WebApplicationFactoryInternal.GetBaseURL())
+                    .Build();
+
                 await server.RunAsync(serverCts.Token);
             });
         }
@@ -119,20 +106,20 @@ namespace BlazorMobile.Webserver.Mono.Services
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"{nameof(EmbedIOWebApplicationFactory)}.{nameof(EmbedIOWebApplicationFactory.StopWebServer)} - {nameof(serverCts)}: {ex.Message}");
+                Console.WriteLine($"{nameof(AspNetCoreWebApplicationFactory)}.{nameof(AspNetCoreWebApplicationFactory.StopWebServer)} - {nameof(serverCts)}: {ex.Message}");
             }
 
             try
             {
-                if (blazorContextBridgeServer != null)
-                {
-                    blazorContextBridgeServer.Dispose();
-                    blazorContextBridgeServer = null;
-                }
+                //if (blazorContextBridgeServer != null)
+                //{
+                //    blazorContextBridgeServer.Dispose();
+                //    blazorContextBridgeServer = null;
+                //}
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"{nameof(EmbedIOWebApplicationFactory)}.{nameof(EmbedIOWebApplicationFactory.StopWebServer)} - {nameof(blazorContextBridgeServer)}: {ex.Message}");
+                //Console.WriteLine($"{nameof(AspNetCoreWebApplicationFactory)}.{nameof(AspNetCoreWebApplicationFactory.StopWebServer)} - {nameof(blazorContextBridgeServer)}: {ex.Message}");
             }
 
             server?.Dispose();

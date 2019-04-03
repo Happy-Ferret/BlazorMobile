@@ -2,13 +2,29 @@
 using BlazorMobile.Services;
 using System;
 using System.IO;
+using BlazorMobile.Webserver.Common;
+using Xamarin.Forms;
+using BlazorMobile.Common.Interfaces;
+using BlazorMobile.Webserver.UWP.Services;
 
 namespace BlazorMobile.UWP.Services
 {
     public class BlazorWebViewService
     {
+        private static IWebApplicationFactory _factory = null;
+
         private static void InitComponent()
         {
+            if (_factory == null)
+            {
+                //Register IBlazorXamarinDeviceService for getting base metadata for Blazor
+                DependencyService.Register<IBlazorXamarinDeviceService, BlazorXamarinDeviceService>();
+
+                //We must resolve current WebApplicationFactory implementation
+                _factory = new AspNetCoreWebApplicationFactory();
+                WebApplicationFactoryInternal.SetWebApplicationFactoryImplementation(_factory);
+            }
+
             BlazorWebViewRenderer.Init();
         }
 
